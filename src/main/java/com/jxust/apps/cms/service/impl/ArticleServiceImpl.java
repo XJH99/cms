@@ -52,14 +52,14 @@ public class ArticleServiceImpl implements IArticleService {
 
             List<Article> articles = articleMapper.selectByExample(example);
             if(articles.size()>0){
-                throw new CustomerException("标题不能重复");
-            }
-            // 初始化
-            article.setPublishTime(new Date().getTime());
-            article.setStatus(ArticleExtend.STATUS_UNCHECK);
-            article.setThumpDown(0l);
-            article.setThumpUp(0l);
-            articleMapper.insert(article);
+            throw new CustomerException("标题不能重复");
         }
+        // 初始化
+        article.setPublishTime(new Date().getTime());
+        article.setStatus(ArticleExtend.STATUS_UNCHECK);
+        article.setThumpDown(0l);
+        article.setThumpUp(0l);
+        articleMapper.insert(article);
+    }
     }
 }
